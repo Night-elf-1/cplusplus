@@ -26,6 +26,7 @@ set(VIRTUAL src/virtual/main.cpp)
 set(VOLATILE src/volatile/main.cpp)
 set(ASSERT src/assert/main.cpp)
 set(EXTERN src/extern/file1.cpp src/extern/file2.cpp)
+set(EXPLICIT src/explicit/main.cpp)
 
 # 添加测试程序的可执行文件
 add_executable(inline ${INLINE})
@@ -36,6 +37,7 @@ add_executable(virtual ${VIRTUAL})
 add_executable(volatile ${VOLATILE})
 add_executable(assert ${ASSERT})
 add_executable(extern ${EXTERN})
+add_executable(explicit ${EXPLICIT})
 
 # 如果您的项目依赖于Eigen库，并且Eigen库位于include目录下
 # find_package(Eigen3 REQUIRED)
