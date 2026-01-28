@@ -53,3 +53,27 @@ add_executable(explicit ${EXPLICIT})
 # else()
 #     message(WARNING "Eigen3 not found. Please specify the path to Eigen3.")
 # endif()
+
+cmake_minimum_required(VERSION 3.10)
+project(CPlusPlusLearning VERSION 1.0)
+
+# --- 1. 全局编译器配置 ---
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# --- 2. 路径配置 ---
+# 设置所有生成的可执行文件统一输出到项目根目录下的 bin 文件夹
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+
+# --- 3. 头文件包含 ---
+# 这样所有子模块都可以直接 #include "extern/xxx.h" 或 "inline/xxx.h"
+include_directories(
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}
+)
+
+# --- 4. 递归进入源码目录 ---
+add_subdirectory(src)
+
+# --- 5. (可选) 如果未来有第三方库依赖，在这里统一声明 ---
+# find_package(Threads REQUIRED)
